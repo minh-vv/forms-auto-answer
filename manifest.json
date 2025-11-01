@@ -1,0 +1,17 @@
+{
+    "manifest_version": 3,
+    "name": "Auto Answer for Microsoft Forms",
+    "version": "1.0",
+    "description": "Tự động điền đáp án Microsoft Forms bằng file JSON từ GitHub",
+    "permissions": ["scripting", "activeTab", "storage"],
+    "content_scripts": [
+      {
+        "matches": ["https://forms.office.com/*"],
+        "js": ["content.js"]
+      }
+    ],
+    "icons": {
+      "128": "icon.png"
+    }
+  }
+  
