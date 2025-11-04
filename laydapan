@@ -1,0 +1,15 @@
+let qa = [];
+document.querySelectorAll('[data-automation-id="questionItem"]').forEach(q => {
+  // Lấy text câu hỏi và loại bỏ số thứ tự đầu dòng (ví dụ: "12.\n")
+  const rawQuestion = q.querySelector('[data-automation-id="questionTitle"]')?.innerText.trim();
+  const question = rawQuestion.replace(/^\s*\d+\.\s*/, '').trim();
+
+  const checkedInput = q.querySelector('input[aria-checked="true"]');
+  const answer = checkedInput?.closest('label')?.querySelector('.text-format-content')?.innerText.trim();
+
+  if (question && answer) {
+    qa.push({ question, ans: answer });
+  }
+});
+
+console.log(JSON.stringify(qa, null, 2));
